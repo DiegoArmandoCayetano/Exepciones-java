@@ -8,6 +8,6 @@ package excepciones_java;
  *
  * @author Lab03pc16
  */
-public class InterruptedException {
+public class SQLIntegrityConstraintViolationException {
     
 }

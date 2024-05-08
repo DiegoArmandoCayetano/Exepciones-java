@@ -2,28 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package excepciones_java;
+package exepciones_ja;
 
 /**
  *
  * @author Lab02pc16
  */
 public class InstantiationException {
-    public class Main {
-    public static void main(String[] args) throws java.lang.IllegalAccessException, java.lang.InstantiationException {
+    
+    public static void main(String[] args) {
         try {
-            // Intentamos instanciar una clase abstracta o una interfaz, lo cual es imposible
-            Object obj = AbstractClass.class.newInstance();
+            // Intentamos crear una instancia de una clase abstracta
+            AbstractClass abstractObject = AbstractClass.class.newInstance();
         } catch (InstantiationException e) {
-            System.out.println("¡Error! No se puede instanciar una clase abstracta o una interfaz.");
+            System.out.println("Error: No se puede instanciar una clase abstracta.");
+            e.printStackTrace();
         } catch (IllegalAccessException e) {
-            System.out.println("¡Error! Acceso ilegal a la clase.");
+            System.out.println("Error: Acceso ilegal a la clase.");
+            e.printStackTrace();
         }
     }
-    }
+}
 
 abstract class AbstractClass {
-    // Definimos una clase abstracta para demostrar el error
+    // Algunos métodos abstractos
 }
 
-}

@@ -8,14 +8,15 @@ package exepciones_java;
  *
  * @author Lab02pc16
  */
-public class ClassNotFoundException {
+public class OutOfMemoryError {
     
     public static void main(String[] args) {
         try {
-            // Intenta cargar una clase que no existe
-            Class.forName("ClaseInexistente");
-        } catch (ClassNotFoundException e) {
-            System.out.println("ClassNotFoundException: La clase especificada no se pudo encontrar.");
+            // Intenta crear un gran número de objetos para agotar la memoria
+            int[] array = new int[Integer.MAX_VALUE];
+        } catch (OutOfMemoryError e) {
+            System.out.println("OutOfMemoryError: No hay suficiente memoria para crear el objeto.");
         }
     }
 }
+ 

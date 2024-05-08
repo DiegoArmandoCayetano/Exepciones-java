@@ -2,21 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package excepciones_java;
+package exepciones_java;
 
 /**
  *
  * @author Lab02pc16
  */
 public class CloneNotSupportedException {
-    public static void main(String[] args) throws java.lang.CloneNotSupportedException {
-    try {
-       
-        Object obj = new Object();
-        Object clonedObj = obj.clone();
-    } catch (CloneNotSupportedException e) {
-        System.out.println("¡Error! La clonación no es compatible con el objeto.");
+    public class Main {
+    public static void main(String[] args) {
+        try {
+            MyClass obj = new MyClass();
+            MyClass cloneObj = (MyClass) obj.clone(); // Genera CloneNotSupportedException
+            System.out.println("Objeto clonado correctamente.");
+        } catch (CloneNotSupportedException e) {
+            System.out.println("CloneNotSupportedException: La clonación no es compatible para este objeto.");
+        }
     }
+}
+
+class MyClass implements Cloneable {
 }
 
 }

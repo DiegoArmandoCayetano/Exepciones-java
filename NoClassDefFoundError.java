@@ -8,14 +8,18 @@ package exepciones_java;
  *
  * @author Lab02pc16
  */
-public class ClassNotFoundException {
-    
+public class NoClassDefFoundError {
+ 
     public static void main(String[] args) {
         try {
-            // Intenta cargar una clase que no existe
+            // Intenta cargar una clase que no está disponible en tiempo de ejecución
             Class.forName("ClaseInexistente");
         } catch (ClassNotFoundException e) {
             System.out.println("ClassNotFoundException: La clase especificada no se pudo encontrar.");
+        } catch (NoClassDefFoundError e) {
+            System.out.println("NoClassDefFoundError: Error al cargar la clase durante la ejecución.");
         }
     }
 }
+
+ 

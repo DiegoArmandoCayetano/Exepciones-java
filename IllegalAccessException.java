@@ -2,32 +2,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package excepciones_java;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+package exepciones_java;
 
 /**
  *
  * @author Lab02pc16
  */
+  import java.lang.reflect.*;
 public class IllegalAccessException {
-    public static void main(String[] args) throws java.lang.IllegalAccessException, InvocationTargetException {
-    try {
-        // Intentamos acceder a un método privado mediante reflexión
-        Class<?> clazz = MyClass.class;
-        Method method = clazz.getDeclaredMethod("privateMethod");
-        method.setAccessible(true); // Necesario para acceder a un método privado
-        method.invoke(new MyClass());
-    } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-        System.out.println("¡Error! Acceso ilegal al método.");
+  
+
+    public static void main(String[] args) {
+        try {
+            Class<?> clazz = Class.forName("MyClass");
+            Constructor<?> constructor = clazz.getDeclaredConstructor();
+            constructor.setAccessible(true); // Acceso a constructor privado
+            MyClass obj = (MyClass) constructor.newInstance();
+            System.out.println("Objeto creado correctamente.");
+        } catch (IllegalAccessException e) {
+            System.out.println("IllegalAccessException: Acceso ilegal a un miembro de la clase.");
+        } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | InvocationTargetException ex) {
+            ex.printStackTrace();
+        }
     }
 }
 
 class MyClass {
-    private void privateMethod() {
-        System.out.println("Método privado invocado.");
+    private MyClass() {
+        // Constructor privado
     }
 }
 
-}
+
